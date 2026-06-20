@@ -1,0 +1,160 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #1a1008;
+  font-family: 'Georgia', serif;
+  color: #f0d9b5;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  color: #d4a86a;
+}
+
+/* ── Lửa ─────────────────────────────────────── */
+
+.fire-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fire-scene {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  min-height: 80px;
+  padding-bottom: 4px;
+}
+
+.flame {
+  width: 48px;
+  border-radius: 50% 50% 20% 20%;
+  transform-origin: bottom center;
+  animation: burn ease-in-out infinite alternate;
+  transition: height 0.3s ease, transform 0.3s ease;
+}
+
+.f1 {
+  background: radial-gradient(ellipse at 50% 100%, #ffee88 0%, #ff9900 60%, transparent 100%);
+  width: 36px;
+  animation-delay: 0.1s;
+}
+
+.f2 {
+  background: radial-gradient(ellipse at 50% 100%, #fff5aa 0%, #ff6600 50%, #cc2200 100%);
+  width: 52px;
+}
+
+.f3 {
+  background: radial-gradient(ellipse at 50% 100%, #ffdd66 0%, #ff8800 55%, transparent 100%);
+  width: 40px;
+  animation-delay: 0.25s;
+}
+
+.ember-glow {
+  position: absolute;
+  width: 160px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #ff4400 0%, transparent 70%);
+  bottom: 0;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.fire-scene {
+  position: relative;
+}
+
+@keyframes burn {
+  0%   { transform: scaleX(1)   scaleY(1)    skewX(0deg); }
+  33%  { transform: scaleX(0.92) scaleY(1.06) skewX(-3deg); }
+  66%  { transform: scaleX(1.05) scaleY(0.95) skewX(2deg); }
+  100% { transform: scaleX(0.96) scaleY(1.03) skewX(-1deg); }
+}
+
+/* ── Củi ─────────────────────────────────────── */
+
+.log-group {
+  position: relative;
+  width: 140px;
+  height: 30px;
+}
+
+.log {
+  position: absolute;
+  width: 110px;
+  height: 18px;
+  background: #4a2c10;
+  border-radius: 9px;
+  border-top: 3px solid #6b3d18;
+  top: 4px;
+  left: 15px;
+  transform: rotate(-8deg);
+}
+
+.log2 {
+  width: 120px;
+  left: 10px;
+  top: 6px;
+  transform: rotate(7deg);
+  background: #3b2009;
+  border-top-color: #5a3010;
+}
+
+/* ── Nhiệt độ ────────────────────────────────── */
+
+.temp-label {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ff9933;
+  letter-spacing: -1px;
+}
+
+/* ── Nút ─────────────────────────────────────── */
+
+.controls {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
+  width: 56px;
+  height: 56px;
+  font-size: 1.8rem;
+  line-height: 1;
+  background: #2e1a08;
+  color: #d4a86a;
+  border: 1px solid #5a3820;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+  background: #4a2e14;
+  color: #ffcc88;
+}
+
+.btn:active {
+  background: #6a4020;
+}
