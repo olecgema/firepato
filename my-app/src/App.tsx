@@ -1,8 +1,22 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
   const [temperature, setTemperature] = useState(25);
+
+  useEffect(() => {
+    const scriptId = 'cta-embed-script';
+
+    if (document.getElementById(scriptId)) {
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://crm-coresys.test/cta-embed.js?id=4';
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   const increase = () => setTemperature(prev => Math.min(prev + 5, 100));
   const decrease = () => setTemperature(prev => Math.max(prev - 5, 0));
@@ -14,7 +28,6 @@ function App() {
 
   return (
     <div className="page">
-      <script src="https://crm-coresys.test/cta-embed.js?id=4 "></script>
       <h1>Sưởi ấm online cho Pato 🐦</h1>
 
       <div className="fire-wrap">
